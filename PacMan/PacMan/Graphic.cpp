@@ -18,8 +18,10 @@ Graphic::~Graphic()
 
 bool Graphic::Init(HWND hwnd)
 {
-	HRESULT hres = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &factory);
+	hres = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &factory);
+
 	if (hres != S_OK) return false;
+
 	RECT rect;
 	GetClientRect(hwnd, &rect);
 	hres = factory->CreateHwndRenderTarget(
@@ -30,6 +32,7 @@ bool Graphic::Init(HWND hwnd)
 	if (hres != S_OK) return false;
 	return true;
 }
+
 
 void Graphic::ClearScreen(float r, float g, float b)
 {
@@ -50,4 +53,60 @@ void Graphic::DrawRectangle(float left, float top, float right, float buttom, fl
 	rendertarget->CreateSolidColorBrush(D2D1::ColorF(r, g, b), &brush);
 	rendertarget->DrawRectangle(D2D1::Rect(left, top, right, buttom), brush, 5.0f);
 	brush->Release();
+}
+
+void Graphic::DrawText(const wchar_t* wszText_, int text_size, int left, int top, int right, int bottom)
+{
+	if (SUCCEEDED(hres))
+	{
+		hres = DWriteCreateFactory(
+			DWRITE_FACTORY_TYPE_SHARED,
+			__uuidof(IDWriteFactory),
+			reinterpret_cast<IUnknown**>(&pDWriteFactory_)
+		);
+	}
+
+	cTextLength_ = (UINT32)wcslen(wszText_);
+
+	if (SUCCEEDED(hres))
+	{
+		hres = pDWriteFactory_->CreateTextFormat(
+			L"Gabriola",                // Font family name.
+			NULL,                       // Font collection (NULL sets it to use the system font collection).
+			DWRITE_FONT_WEIGHT_REGULAR,
+			DWRITE_FONT_STYLE_NORMAL,
+			DWRITE_FONT_STRETCH_NORMAL,
+			text_size,
+			L"en-us",
+			&pTextFormat_
+		);
+	}
+
+	// Center align (horizontally) the text.
+	if (SUCCEEDED(hres))
+	{
+		hres = pTextFormat_->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+	}
+
+	if (SUCCEEDED(hres))
+	{
+		hres = pTextFormat_->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+	}
+
+	ID2D1SolidColorBrush *brush;
+	rendertarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), &brush);
+
+	D2D1_RECT_F layoutRect = D2D1::RectF(
+		static_cast<FLOAT>(left),
+		static_cast<FLOAT>(top),
+		static_cast<FLOAT>(right),
+		static_cast<FLOAT>(bottom)
+	);
+	rendertarget->DrawText(
+		wszText_,        // The string to render.
+		cTextLength_,    // The string's length.
+		pTextFormat_,    // The text format.
+		layoutRect,       // The region of the window where the text will be rendered.
+		brush     // The brush used to draw the text.
+	);
 }

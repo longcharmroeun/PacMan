@@ -1,3 +1,7 @@
-﻿  PacMan.cpp
+﻿  Graphic.cpp
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\graphic.cpp(79): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  PacMan.cpp
 c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(127): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SpriteSheet.cpp
+  Generating Code...
   PacMan.vcxproj -> C:\Users\LONG_CHARMROEUN\source\repos\PacMan\PacMan\Debug\PacMan.exe
