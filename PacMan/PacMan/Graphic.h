@@ -29,8 +29,8 @@ public:
 	void BeginDraw() { rendertarget->BeginDraw(); }
 	void EndDraw() { rendertarget->EndDraw(); }
 	void ClearScreen(float r, float g, float b);
-	void DrawCircle(float x, float y, float radius, float r, float g, float b);
-	void DrawRectangle(float left, float top, float right, float buttom, float r, float g, float b);
+	void DrawCircle(float size ,float x, float y, float radius, float r, float g, float b);
+	void DrawRectangle(float size ,float left, float top, float right, float buttom, float r, float g, float b);
 	void DrawText(const wchar_t* wszText_, int text_size, int left, int top, int right, int bottom);
 };
 
