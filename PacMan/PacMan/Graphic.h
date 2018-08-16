@@ -1,8 +1,6 @@
 #pragma once
 #include <d2d1.h>
 #include <Windows.h>
-#include <iostream>
-#include <string.h>
 #include <Dwrite.h>
 
 class Graphic
