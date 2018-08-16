@@ -1,3 +1,11 @@
 ﻿  PacMan.cpp
-c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(128): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(137): warning C4244: '+=': conversion from 'const float' to 'int', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(138): warning C4244: '-=': conversion from 'const float' to 'int', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(139): warning C4244: '-=': conversion from 'const float' to 'int', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(140): warning C4244: '+=': conversion from 'const float' to 'int', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(169): warning C4244: '+=': conversion from 'const float' to 'int', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(174): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(192): warning C4244: '+=': conversion from 'const float' to 'int', possible loss of data
+c:\users\long_charmroeun\source\repos\pacman\pacman\pacman\pacman.cpp(197): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PacMan.vcxproj -> C:\Users\LONG_CHARMROEUN\source\repos\PacMan\PacMan\Debug\PacMan.exe

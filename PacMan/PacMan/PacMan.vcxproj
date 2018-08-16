@@ -148,6 +148,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Food.h" />
+    <ClInclude Include="Food1.h" />
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="PacMan.h" />
     <ClInclude Include="Property.h" />
@@ -157,6 +159,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Food.cpp" />
+    <ClCompile Include="Food1.cpp" />
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="PacMan.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />

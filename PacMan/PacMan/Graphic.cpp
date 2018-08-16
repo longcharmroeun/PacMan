@@ -55,7 +55,7 @@ void Graphic::DrawRectangle(float size ,float left, float top, float right, floa
 	brush->Release();
 }
 
-void Graphic::DrawText(const wchar_t* wszText_, int text_size, int left, int top, int right, int bottom)
+void Graphic::DrawText(const wchar_t* wszText_, int text_size, int left, int top, int right, int bottom, float r, float g, float b)
 {
 	if (SUCCEEDED(hres))
 	{
@@ -71,13 +71,13 @@ void Graphic::DrawText(const wchar_t* wszText_, int text_size, int left, int top
 	if (SUCCEEDED(hres))
 	{
 		hres = pDWriteFactory_->CreateTextFormat(
-			L"Gabriola",                // Font family name.
+			TEXT("Gabriola"),                // Font family name.
 			NULL,                       // Font collection (NULL sets it to use the system font collection).
 			DWRITE_FONT_WEIGHT_REGULAR,
 			DWRITE_FONT_STYLE_NORMAL,
 			DWRITE_FONT_STRETCH_NORMAL,
 			text_size,
-			L"en-us",
+			TEXT("en-us"),
 			&pTextFormat_
 		);
 	}
@@ -94,7 +94,7 @@ void Graphic::DrawText(const wchar_t* wszText_, int text_size, int left, int top
 	}
 
 	ID2D1SolidColorBrush *brush;
-	rendertarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), &brush);
+	rendertarget->CreateSolidColorBrush(D2D1::ColorF(r,g,b), &brush);
 
 	D2D1_RECT_F layoutRect = D2D1::RectF(
 		static_cast<FLOAT>(left),
